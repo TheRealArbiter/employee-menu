@@ -12,7 +12,9 @@ class Starter(View):
         if settings['USE_HTTPS']:
             api_url = "https://"
         else:
-            api_url = "http://"
+            api_url = "http://localhost:"
+        server_port = request.environ.get('SERVER_PORT', None)
+        api_url += server_port    
         # server_port = request.environ.get('SERVER_PORT', None)
         # if server_port:
         #     api_url += f"{request.tenant.domain_url}:{server_port}"

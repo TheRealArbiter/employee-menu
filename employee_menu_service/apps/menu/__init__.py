@@ -1,0 +1,1 @@
+app_config = 'employee_service_menu.apps.menu.apps.MenuConfig'
