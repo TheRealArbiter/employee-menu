@@ -9,23 +9,25 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from .utils.json_reader import json_settings
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 settings = json_settings()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d2btu+p82h8s#55)moc0s^*(k0w95u=f166_9i^0p-a!8m_)a!'
+SECRET_KEY = settings['SECURITY']['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = settings['DEBUG']
+URL_SERVER = settings['URL_SERVER']
+ALLOWED_HOSTS = settings['SECURITY']['ALLOWED_HOSTS']
+
 
 ALLOWED_HOSTS = []
 
@@ -56,18 +58,20 @@ ROOT_URLCONF = 'employee_menu_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'employee_menu_service/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',  # Puede ser que ya no sea necesario por ser API
+                'django.template.context_processors.i18n',  # Puede ser que ya no sea necesario por ser API
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'employee_menu_service.wsgi.application'
 

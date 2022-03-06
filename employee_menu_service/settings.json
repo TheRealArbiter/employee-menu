@@ -9,7 +9,7 @@
     },
     "USE_HTTPS": false,
     "SECURITY": {
-      "SECRET_KEY": "4&n*!ha(vk_135b(@gke%b1y31m220+0cf^gb-6s^doh7ti(9g",
+      "SECRET_KEY": "django-insecure-d2btu+p82h8s#55)moc0s^*(k0w95u=f166_9i^0p-a!8m_)a!",
       "DAYS_TO_ACTIVATE_ACCOUNT": 3,
       "LOGIN_REDIRECT_URL": "/",
       "ALLOWED_HOSTS": [
