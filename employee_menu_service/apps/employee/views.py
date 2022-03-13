@@ -2,16 +2,18 @@ from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 from rest_framework import viewsets, status
-from employee_menu_service.apps.meals.models import Meals
-from employee_menu_service.apps.meals.serializers import MealsSerializer
+from employee_menu_service.apps.employee.models import Employee
+from employee_menu_service.apps.employee.serializers import EmployeeSerializer
 from employee_menu_service.apps.mixins import PaginationHandlerMixin
 
 class PaginationClass(LimitOffsetPagination):
     default_limit = 10
-class MenuViewSet(viewsets.ModelViewSet, PaginationHandlerMixin):
+    
+    
+class EmployeeViewSet(viewsets.ModelViewSet, PaginationHandlerMixin):
     pagination_class = PaginationClass
-    serializer_class = MealsSerializer
-    queryset = Meals.objects.all()
+    serializer_class = EmployeeSerializer
+    queryset = Employee.objects.all()
     filterset_fields = ('name',)
     
     

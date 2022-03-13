@@ -14,12 +14,9 @@ urlpatterns = [
     path('api/doc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     # Own Django Apps.
     path('menu/', include('employee_menu_service.apps.menu.urls')),
-    # path('setup/', include('people.apps.setup.urls')),
-    # path('business/', include('people.apps.business.urls')),
-    # path('noticenter/', include('people.apps.noticenter.urls')),
-    # path('payroll/', include('people.apps.payroll.urls')),
-    # path('intranet/', include('people.apps.intranet.urls')),
-    # path('fiscal/', include('people.apps.fiscal.urls')),
+    path('meals/', include('employee_menu_service.apps.meals.urls')),
+    path('employee/', include('employee_menu_service.apps.employee.urls')),
+    
 ]
 
 if settings.DEBUG:  # Adding statics only if debug = True

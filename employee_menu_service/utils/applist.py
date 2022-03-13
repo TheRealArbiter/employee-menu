@@ -14,6 +14,8 @@ __DJANGO_APPS = (
 __OWN_APPS = (
     'employee_menu_service.apps.apidoc',
     'employee_menu_service.apps.menu',
+    'employee_menu_service.apps.meals',
+    'employee_menu_service.apps.employee',
 )
 
 __THIRD_PARTY_APPS = (
